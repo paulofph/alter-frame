@@ -1,0 +1,12 @@
+[
+    { "id": 1, "name": "Ace", "breed": "Beagle" },
+    { "id": 2, "name": "Narcos", "breed": "Rottweiler" },
+    { "id": 3, "name": "Elvis", "breed": "Bulldog" },
+    { "id": 4, "name": "Bear", "breed": "Husky" },
+    { "id": 5, "name": "Luna", "breed": "Undefined" },
+    { "id": 6, "name": "Amendoim", "breed": "Labrador retriever" },
+    { "id": 7, "name": "Caramelo", "breed": "Australian Shepherd" },
+    { "id": 8, "name": "Jack", "breed": "Boxer" },
+    { "id": 9, "name": "Scout", "breed": "Dalmatian" },
+    { "id": 10, "name": "Zeus", "breed": "Pug" }
+]

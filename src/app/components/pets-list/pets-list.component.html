@@ -3,5 +3,11 @@
   <span>Custom Toolbar</span>
 </mat-toolbar>
 
+-{{petsViewModel}}-
 
-
+<mat-list>
+    <h3 mat-subheader>Folders</h3>
+    <mat-list-item *ngFor="let pet of petsViewModel">
+      <h4 mat-line>{{pet.name}}</h4>
+    </mat-list-item>
+</mat-list>
