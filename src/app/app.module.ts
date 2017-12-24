@@ -5,9 +5,9 @@ import { Http } from '@angular/http';
 
 
 // angular material
-import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatGridListModule} from '@angular/material';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule, MatSidenavModule, MatGridListModule,
+         MatToolbarModule, MatListModule, MatCardModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // components
 import { AppComponent } from './app.component';
@@ -27,6 +27,8 @@ import { PetsService } from './services/pets.service';
     MatCheckboxModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatListModule,
+    MatCardModule,
     BrowserAnimationsModule,
     MatGridListModule,
     BrowserModule,

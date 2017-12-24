@@ -1,13 +1,13 @@
 <!-- ToolBar -->
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="pets-toolbar" [class.mat-elevation-z24]="true">
   <span>Custom Toolbar</span>
 </mat-toolbar>
 
--{{petsViewModel}}-
-
-<mat-list>
-    <h3 mat-subheader>Folders</h3>
+<mat-card>
+  <mat-list>
     <mat-list-item *ngFor="let pet of petsViewModel">
-      <h4 mat-line>{{pet.name}}</h4>
+      <span mat-line>{{pet.name}}</spanr>
+      <span mat-line>{{pet.breed}}</span>
     </mat-list-item>
-</mat-list>
+  </mat-list>
+</mat-card>
