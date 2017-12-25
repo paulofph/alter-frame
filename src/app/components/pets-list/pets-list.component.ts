@@ -10,6 +10,7 @@ import { PetsService } from './../../services/pets.service'
 // models
 import { PetsViewModel } from './../../models/pets-view-model.model'
 import { Pet } from './../../models/pet.model'
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-components-pets-list',
@@ -39,18 +40,29 @@ export class PetsListComponent implements OnInit {
   }
 
   private addNewPet(){
-    this.isEditMode = true;
-    this.petsViewModel.pets.push(new Pet())
+    //this.isEditMode = true;
+    //this.petsViewModel.pets.push(new Pet())
+    let pet = new Pet();
+    this.openDialog(new Pet());
   }
 
-  openDialog(): void {
+  private addPetToViewModel(newPet: Pet){
+    this.petsViewModel.pets.push(newPet);
+  }
+
+  private updatePetInViewModel(){
+    
+  }
+
+  private openDialog(pet: Pet): void {
     let dialogRef = this.dialog.open(PetDialogComponent, {
-      width: '250px'
+      width: '350px',
+      data: { name: pet.name, breed: pet.breed }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //this.animal = result;
+      if(!pet.id && result)
+        this.addPetToViewModel(result);
     });
   }
 }

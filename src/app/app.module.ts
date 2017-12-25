@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { Http } from '@angular/http';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // angular material
 import { MatButtonModule, MatCheckboxModule, MatSidenavModule, MatGridListModule,
@@ -27,6 +26,7 @@ import { PetDialogComponent } from './components/pet-dialog/pet-dialog.component
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule, 
     MatCheckboxModule,
     MatSidenavModule,
