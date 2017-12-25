@@ -1,3 +1,14 @@
 .pets-toolbar{
     margin-bottom: 5px;
 }
+
+.individual-button{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }

@@ -31,27 +31,26 @@ export class PetsListComponent implements OnInit {
     // load All Pets
     this.petService.getAllPets().subscribe(data => { 
       this.petsViewModel.pets = data;
-    }
-      , error => console.log(error));
+    },
+    error => console.log(error));
   }
+
 
   private activateOrDeactivateEditMode(){
     this.isEditMode = !this.isEditMode;
   }
 
   private addNewPet(){
-    //this.isEditMode = true;
-    //this.petsViewModel.pets.push(new Pet())
-    let pet = new Pet();
     this.openDialog(new Pet());
   }
 
-  private addPetToViewModel(newPet: Pet){
-    this.petsViewModel.pets.push(newPet);
+  private editPet(pet: Pet){
+    this.openDialog(pet);
   }
 
-  private updatePetInViewModel(){
-    
+  private addPetToViewModel(newPet: Pet){
+    //ToDo: generate Id
+    this.petsViewModel.pets.push(newPet);
   }
 
   private openDialog(pet: Pet): void {
@@ -63,6 +62,8 @@ export class PetsListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(!pet.id && result)
         this.addPetToViewModel(result);
+      else
+        Object.assign(pet, result)
     });
   }
 }

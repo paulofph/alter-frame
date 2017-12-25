@@ -8,7 +8,6 @@
 
       <div class="col col-md-1">
         <button mat-mini-fab color="primary" (click)="activateOrDeactivateEditMode()">
-          <i *ngIf="!isEditMode" class="material-icons icon-size">create</i>
           <i *ngIf="isEditMode" class="material-icons icon-size">check</i>
         </button>
       </div>
@@ -21,27 +20,21 @@
       <mat-list-item *ngFor="let pet of petsViewModel.pets">
         <!-- view -->
         <div class="row" style="width: 100%" *ngIf="!isEditMode">
-          <div class="col col-md-6">
+          <div class="col col-md-5">
             <span>{{pet.name}}</span>
           </div>
           <div class="col col-md-6">
             <span>{{pet.breed}}</span>
           </div>
+          <div class="button-row">
+              <button mat-icon-button (click)="editPet(pet)">
+                <mat-icon><i class="material-icons icon-size" style="font-size: initial">create</i></mat-icon>
+              </button>
+              <button mat-icon-button>
+                <mat-icon><i class="material-icons icon-size" style="font-size: initial">delete</i></mat-icon>
+              </button>
+            </div>
         </div>
-
-        <!-- edit -->
-        <div class="row" style="width: 100%" *ngIf="isEditMode">
-            <div class="col col-md-6">
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="name" [(ngModel)]="pet.name">
-              </mat-form-field>
-            </div>
-            <div class="col col-md-6">
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="breed" [(ngModel)]="pet.breed">
-              </mat-form-field>
-            </div>
-          </div>
       </mat-list-item>
 
     </mat-list>
