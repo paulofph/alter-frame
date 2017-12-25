@@ -1,14 +1,26 @@
-<div class="container">
+<div class="container" *ngIf="petsViewModel">
   <!-- ToolBar -->
   <mat-toolbar color="primary" class="pets-toolbar" [class.mat-elevation-z24]="true">
-    <span>Custom Toolbar</span>
+    <div class="row" style="width: 100%">
+      <div class="col col-md-1">
+        <button mat-mini-fab color="primary" (click)="addNewPet();"><i class="material-icons icon-size">add</i></button>
+      </div>
+
+      <div class="col col-md-1">
+        <button mat-mini-fab color="primary" (click)="activateOrDeactivateEditMode()">
+          <i *ngIf="!isEditMode" class="material-icons icon-size">create</i>
+          <i *ngIf="isEditMode" class="material-icons icon-size">check</i>
+        </button>
+      </div>
+    </div>
   </mat-toolbar>
 
   <mat-card>
     <mat-list>
 
-      <mat-list-item *ngFor="let pet of petsViewModel">
-        <div class="row" style="width: 100%">
+      <mat-list-item *ngFor="let pet of petsViewModel.pets">
+        <!-- view -->
+        <div class="row" style="width: 100%" *ngIf="!isEditMode">
           <div class="col col-md-6">
             <span>{{pet.name}}</span>
           </div>
@@ -16,6 +28,20 @@
             <span>{{pet.breed}}</span>
           </div>
         </div>
+
+        <!-- edit -->
+        <div class="row" style="width: 100%" *ngIf="isEditMode">
+            <div class="col col-md-6">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="name" [(ngModel)]="pet.name">
+              </mat-form-field>
+            </div>
+            <div class="col col-md-6">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="breed" [(ngModel)]="pet.breed">
+              </mat-form-field>
+            </div>
+          </div>
       </mat-list-item>
 
     </mat-list>

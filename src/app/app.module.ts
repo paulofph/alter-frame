@@ -2,11 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { Http } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 
 // angular material
 import { MatButtonModule, MatCheckboxModule, MatSidenavModule, MatGridListModule,
-         MatToolbarModule, MatListModule, MatCardModule } from '@angular/material';
+         MatToolbarModule, MatListModule, MatCardModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // components
@@ -23,12 +24,14 @@ import { PetsService } from './services/pets.service';
     PetsListComponent
   ],
   imports: [
+    FormsModule,
     MatButtonModule, 
     MatCheckboxModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
     MatCardModule,
+    MatInputModule,
     BrowserAnimationsModule,
     MatGridListModule,
     BrowserModule,
