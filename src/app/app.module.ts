@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 // angular material
 import { MatButtonModule, MatCheckboxModule, MatSidenavModule, MatGridListModule,
-         MatToolbarModule, MatListModule, MatCardModule, MatInputModule } from '@angular/material';
+         MatToolbarModule, MatListModule, MatCardModule, MatInputModule, MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // components
@@ -16,12 +16,14 @@ import { PetsListComponent } from './components/pets-list/pets-list.component';
 
 // services
 import { PetsService } from './services/pets.service';
+import { PetDialogComponent } from './components/pet-dialog/pet-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PetsListComponent
+    PetsListComponent,
+    PetDialogComponent
   ],
   imports: [
     FormsModule,
@@ -32,6 +34,7 @@ import { PetsService } from './services/pets.service';
     MatListModule,
     MatCardModule,
     MatInputModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     MatGridListModule,
     BrowserModule,
@@ -39,6 +42,9 @@ import { PetsService } from './services/pets.service';
   ],
   providers: [
     PetsService
+  ],
+  entryComponents: [
+    PetDialogComponent
   ],
   bootstrap: [AppComponent]
 })
