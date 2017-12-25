@@ -5,12 +5,6 @@
       <div class="col col-md-1">
         <button mat-mini-fab color="primary" (click)="addNewPet();"><i class="material-icons icon-size">add</i></button>
       </div>
-
-      <div class="col col-md-1">
-        <button mat-mini-fab color="primary" (click)="activateOrDeactivateEditMode()">
-          <i *ngIf="isEditMode" class="material-icons icon-size">check</i>
-        </button>
-      </div>
     </div>
   </mat-toolbar>
 
@@ -30,7 +24,7 @@
               <button mat-icon-button (click)="editPet(pet)">
                 <mat-icon><i class="material-icons icon-size" style="font-size: initial">create</i></mat-icon>
               </button>
-              <button mat-icon-button>
+              <button mat-icon-button (click)="deletePet(pet)">
                 <mat-icon><i class="material-icons icon-size" style="font-size: initial">delete</i></mat-icon>
               </button>
             </div>

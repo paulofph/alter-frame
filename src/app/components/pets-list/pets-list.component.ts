@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 // components
 import { PetDialogComponent } from './../pet-dialog/pet-dialog.component'
+import { ConfirmDialogComponent } from './../confirm-dialog/confirm-dialog.component'
 
 // services
 import { PetsService } from './../../services/pets.service'
@@ -36,16 +37,16 @@ export class PetsListComponent implements OnInit {
   }
 
 
-  private activateOrDeactivateEditMode(){
-    this.isEditMode = !this.isEditMode;
+  private addNewPet(){
+    this.openPetDialog(new Pet());
   }
 
-  private addNewPet(){
-    this.openDialog(new Pet());
+  private deletePet(pet:Pet){
+    this.openConfirmDialog(pet.id);
   }
 
   private editPet(pet: Pet){
-    this.openDialog(pet);
+    this.openPetDialog(pet);
   }
 
   private addPetToViewModel(newPet: Pet){
@@ -53,7 +54,18 @@ export class PetsListComponent implements OnInit {
     this.petsViewModel.pets.push(newPet);
   }
 
-  private openDialog(pet: Pet): void {
+  private openConfirmDialog(id: string): void {
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result)
+        this.removePetFromViewModel(id)
+    });
+  }
+
+  private openPetDialog(pet: Pet): void {
     let dialogRef = this.dialog.open(PetDialogComponent, {
       width: '350px',
       data: { name: pet.name, breed: pet.breed }
@@ -64,6 +76,12 @@ export class PetsListComponent implements OnInit {
         this.addPetToViewModel(result);
       else
         Object.assign(pet, result)
+    });
+  }
+
+  private removePetFromViewModel(id: string){
+    this.petsViewModel.pets = this.petsViewModel.pets.filter(function( obj ) {
+      return obj.id !== id;
     });
   }
 }

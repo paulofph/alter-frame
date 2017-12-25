@@ -12,17 +12,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // components
 import { AppComponent } from './app.component';
 import { PetsListComponent } from './components/pets-list/pets-list.component';
+import { PetDialogComponent } from './components/pet-dialog/pet-dialog.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 // services
 import { PetsService } from './services/pets.service';
-import { PetDialogComponent } from './components/pet-dialog/pet-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PetsListComponent,
-    PetDialogComponent
+    PetDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     FormsModule,
@@ -44,7 +46,8 @@ import { PetDialogComponent } from './components/pet-dialog/pet-dialog.component
     PetsService
   ],
   entryComponents: [
-    PetDialogComponent
+    PetDialogComponent,
+    ConfirmDialogComponent
   ],
   bootstrap: [AppComponent]
 })
