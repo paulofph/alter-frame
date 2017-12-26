@@ -54,6 +54,12 @@ export class PetsListComponent implements OnInit {
     this.petsViewModel.pets.push(newPet);
   }
 
+  private getAllBreeds(): string[] {
+    return this.petsViewModel.pets.map(function(e) { return e['breed']; }).filter(function(e,i,a){
+        return i === a.indexOf(e);
+    });
+  }
+
   private openConfirmDialog(id: string): void {
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '250px'
@@ -66,9 +72,10 @@ export class PetsListComponent implements OnInit {
   }
 
   private openPetDialog(pet: Pet): void {
+    let breedOptions = this.getAllBreeds();
     let dialogRef = this.dialog.open(PetDialogComponent, {
       width: '350px',
-      data: { name: pet.name, breed: pet.breed }
+      data: { name: pet.name, breed: pet.breed, breedOptions: breedOptions }
     });
 
     dialogRef.afterClosed().subscribe(result => {

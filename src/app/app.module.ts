@@ -6,7 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // angular material
 import { MatButtonModule, MatCheckboxModule, MatSidenavModule, MatGridListModule,
-         MatToolbarModule, MatListModule, MatCardModule, MatInputModule, MatDialogModule } from '@angular/material';
+         MatToolbarModule, MatListModule, MatCardModule, MatInputModule, MatDialogModule,
+         MatAutocompleteModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // components
@@ -37,6 +38,7 @@ import { PetsService } from './services/pets.service';
     MatCardModule,
     MatInputModule,
     MatDialogModule,
+    MatAutocompleteModule,
     BrowserAnimationsModule,
     MatGridListModule,
     BrowserModule,
