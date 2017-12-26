@@ -22,7 +22,6 @@ export class PetDialogComponent {
       'name' : [null, Validators.required],
       'breed' : [null, Validators.required]
     });
-    console.log(data)
   }
 
   private closeDialog(){
