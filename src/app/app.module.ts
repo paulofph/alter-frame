@@ -18,6 +18,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 
 // services
 import { PetsService } from './services/pets.service';
+import { SearchPipe } from './_shared/pipes/search.pipe';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PetsService } from './services/pets.service';
     AppComponent,
     PetsListComponent,
     PetDialogComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    SearchPipe
   ],
   imports: [
     FormsModule,

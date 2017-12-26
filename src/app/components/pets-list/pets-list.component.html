@@ -2,8 +2,15 @@
   <!-- ToolBar -->
   <mat-toolbar color="primary" class="pets-toolbar" [class.mat-elevation-z24]="true">
     <div class="row" style="width: 100%">
-      <div class="col col-md-1">
+      <div class="col col-md-1 align-ver-add-button">
         <button mat-mini-fab color="primary" (click)="addNewPet();"><i class="material-icons icon-size">add</i></button>
+      </div>
+      <div class="col col-md-11 white-text">
+        <form class="form">
+          <mat-form-field>
+            <input matInput placeholder="Search" [(ngModel)]="searchString" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </form>
       </div>
     </div>
   </mat-toolbar>
@@ -11,7 +18,7 @@
   <mat-card>
     <mat-list>
 
-      <mat-list-item *ngFor="let pet of petsViewModel.pets">
+      <mat-list-item *ngFor="let pet of petsViewModel.pets | search: searchString">
         <!-- view -->
         <div class="row" style="width: 100%" *ngIf="!isEditMode">
           <div class="col col-md-5">

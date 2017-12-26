@@ -11,4 +11,15 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-  }
+}
+
+.form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    font-size: initial;
+}
+
+.align-ver-add-button{
+    margin-top: 10px;
+}

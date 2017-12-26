@@ -19,9 +19,10 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./pets-list.component.css']
 })
 export class PetsListComponent implements OnInit {
-
-  private petsViewModel: PetsViewModel = new PetsViewModel();
+  
   private isEditMode: boolean = false;
+  private petsViewModel: PetsViewModel = new PetsViewModel();
+  private searchString: string;
 
   constructor(
     private petService: PetsService,
