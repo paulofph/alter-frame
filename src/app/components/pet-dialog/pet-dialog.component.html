@@ -1,4 +1,5 @@
-<h2 mat-dialog-title>New Pet</h2>
+<h2 *ngIf="data.name == undefined" mat-dialog-title>New Pet</h2>
+<h2 *ngIf="data.name != undefined" mat-dialog-title>Update Pet</h2>
 
 <form [formGroup]="petForm">
     <div class="container" style="width: 350px;">
@@ -20,7 +21,8 @@
             </div>
         </div>
         <div class="row">
-            <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial [disabled]="!petForm.valid">Add</button>
+                <button *ngIf="data.name == undefined" mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial [disabled]="!petForm.valid">Add</button>
+            <button *ngIf="data.name != undefined" mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial [disabled]="!petForm.valid">Update</button>
             <button mat-raised-button cdkFocusInitial (click)="closeDialog()">Cancel</button>
         </div>
     </div>
